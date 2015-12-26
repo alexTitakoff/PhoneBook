@@ -1,0 +1,19 @@
+<div class="phone-card">
+	
+
+
+	<div class="person_foto">
+		<img  style="width: 64px; height: 64px;
+		border-radius: 50%;
+		-webkit-box-shadow: 0px 2px 5px 3px rgba(56,46,34,1);
+		-moz-box-shadow: 0px 2px 5px 3px rgba(56,46,34,1);
+		box-shadow: 0px 2px 5px 3px rgba(56,46,34,1);
+		"
+		ng-src="{{'img/'+person.photo}}">
+	</div>
+	<div class="person_data">
+		<h4 class="media-heading">{{person.name}} <br>
+			<span class="label label-default">{{person.country }}</span></h4>
+			<p>{{person.phone}}</p>
+		</div>
+	</div>
