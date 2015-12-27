@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/resets.css">
+	<style>
+
+		@font-face {
+			font-family: "Impact";
+			src: url("fonts/impact_[allfont.ru].ttf");
+
+			font-style: normal;
+			font-weight: normal;
+		}
+
+		@font-face {
+			font-family: "Ristretto Bold";
+			src: url("fonts/Ristretto_Pro/RistrettoPro-Bold.otf");
+
+			font-style: normal;
+			font-weight: normal;
+		}
+
+		@font-face {
+			font-family: "Ristretto Medium";
+			src: url("fonts/Ristretto_Pro/RistrettoPro-Medium.otf");
+
+			font-style: normal;
+			font-weight: normal;
+		}
+
+		html {
+
+			height: 100%;
+			background: url(main_index_img/html_bg2.png);
+
+		}
+
+
+		html {height: 100%;} 
+		body {
+			height: 100%;
+			margin: 0 auto;
+			width: 100%; 
+			max-width: 900px;
+			-webkit-box-shadow: 0px 3px 17px 5px rgba(0,0,0,0.75);
+			-moz-box-shadow: 0px 3px 17px 5px rgba(0,0,0,0.75);
+			box-shadow: 0px 3px 17px 5px rgba(0,0,0,0.75);
+			background: url(main_index_img/body2_bg.png);
+			position: relative;
+			padding: 20px;
+			border: 1px solid #675e4d;
+		}
+
+		#body_container {
+			background: url(main_index_img/body_bg.png);
+			height: 100%;
+			width: 100%;
+			position: relative;
+			-webkit-box-shadow: 0px 2px 5px 3px rgba(56,46,34,1);
+			-moz-box-shadow: 0px 2px 5px 3px rgba(56,46,34,1);
+			box-shadow: 0px 2px 5px 3px rgba(56,46,34,1);
+			padding: 10px;
+
+
+
+		}
+
+		#border_div {
+			border: 1px solid #dccea9;
+			height: 100%;
+			width: 100%;
+			
+
+		}
+
+		#content {
+			max-width: 750px;
+			width: 100%;
+			position: relative;
+			margin: auto;
+			height: 88%;
+		}
+		p {
+			font-size: 20px;
+			color: #635D5D;
+			font-family: 'Ristretto Medium';
+			text-align: center;
+
+			
+			position: relative;
+			line-height: 20px;
+
+		}
+
+		h1 {
+
+			font-size: 30px;
+			color: #635D5D;
+			font-family: 'Ristretto Medium';
+			text-align: center;
+
+			
+			position: relative;
+			margin-top: 20px;
+			line-height: 20px;
+
+		}
+
+
+		#interface_row {
+			margin-top: 20px;
+
+		}
+
+		.filter {
+			display: inline-block;
+			position: relative;
+			width: 50%;
+		}
+
+		#trigger, #trigger2 {
+			display: inline-block;
+			position: relative;
+			left: 0;
+			width: 10%;
+
+
+			background: #A7A172;
+			font-size: 20px;
+			color: #635D5D;
+			font-family: 'Ristretto Medium';
+
+			cursor: pointer;
+			-webkit-box-shadow: inset -4px -3px 0px -1px rgba(71,50,13,0.74);
+			-moz-box-shadow: inset -4px -3px 0px -1px rgba(71,50,13,0.74);
+			box-shadow: inset -4px -3px 0px -1px rgba(71,50,13,0.74);
+
+		}
+
+		#trigger:hover {
+			background: #ECE2A0;
+		}
+
+		#trigger2:hover {
+			background: #ECE2A0;
+		}
+
+		.wh {
+			background: #fff !important;
+
+		}
+		.yel {
+			background: #A7A172 !important;
+
+		}
+
+		.filter {
+			height: 28px;
+			background: url(main_index_img/sruare_grid.png);
+			background-size: 20%;
+			font-size: 20px;
+			color: #635D5D;
+			font-family: 'Ristretto Medium';
+
+		}
+
+		#book_content {
+			background: url(main_index_img/sruare_grid.png);
+			padding: 10px;
+			background-size: 20%;
+			height: 100%;
+			overflow: hidden;
+
+		}
+
+		#person_list {
+			overflow: auto;
+			height: 87%;
+		}
+
+		
+		.person_foto {
+			display: inline-block;
+			position: relative;
+			margin: 10px;
+
+		}
+
+		.person_foto img {
+			height: 100%;
+
+		}
+		.person_data {
+			display: inline-block;
+			position: relative;
+			text-align: left;
+		}
+		.person_data p {
+			text-align: left;
+		}
+		th {
+			margin-right: 20px;
+		}
+
+
+
+
+	</style>
+</head>
+
+
+
+<body ng-app="phonebook">
+	<div id="body_container">
+
+
+		
+		<div id="border_div">
+			<div id="content">
+
+
+				<h1>PhoneBook</h1>
+				<br>
+
+				
+
+				<div id="book_content" ng-controller="PhonebookController"
+				ng-switch on="view" > 
+				<p>	You can call some of these people</p>
+
+
+				<div id="interface_row">
+
+					<input class="filter" placeholder="Введите имя страну или номер " type="text" ng-model="query">
+
+					<button id="trigger"  onclick="triggerColor()"  ng-click="view='list'">List</button>
+					<button id="trigger2" onclick="triggerColor2()"  ng-click="view='table'" >Table</button>	
+				</div>
+
+
+
+
+
+				<div id="person_list" ng-switch-when="list">
+					<pb-person-card
+					ng-repeat="person in persons | filter:query"
+					person="person"></pb-person-card>
+
+				</div>
+
+				<table class="table" ng-switch-when="table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Name</th>
+							<th>Country</th>
+							<th>Phone</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="p in persons | filter:query">
+							<td>{{$index + 1}}</td>
+							<td>{{p.name}}</td>
+							<td>{{p.country}}</td>
+							<td>{{p.phone}}</td>
+						</tr>
+					</tbody>
+				</table>
+
+
+
+			</div>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
+<script src="js/app.js"></script>
+
+
+<script>
+	// ФУНКЦИЯ ХОВЕРДА И ЭКТИВА кнопок
+
+
+
+	var butn = document.getElementById('trigger');
+	var butn2 = document.getElementById('trigger2');
+
+	console.log (butn.style.background);
+
+	function triggerColor() {
+		butn.classList.remove('yel');
+		butn.classList.add('wh');
+		butn2.classList.add('yel');
+
+		console.log(butn.classList);
+		
+		
+
+		// if (butn.style.backgroundColor == 'rgb(167, 161, 114)') {
+			// 	butn.style.backgroundColor = 'rgb(255, 255, 255)';
+			// 	console.log (butn.style.backgroundColor);
+			// } else {
+				// 	butn.style.backgroundColor = 'rgb(167, 161, 114)';
+				// }
+
+			}
+
+			function triggerColor2() {
+
+				butn2.classList.remove('yel');
+				butn2.classList.add('wh');
+				butn.classList.add('yel');
+
+
+				console.log(butn2.classList);	
+
+			}
+
+
+
+
+		</script>
+
+	</body>
+
+
+
+
+
+
+	</html>
