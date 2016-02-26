@@ -3,7 +3,7 @@
 ##[ViewApp](http://alexwhoami.github.io/PhoneBook/)
 ***
 
-Dual view model: Grid and List.
+Dual view model:  List and Table.
 
 Smart ng-Search.
 
