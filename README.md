@@ -7,5 +7,5 @@ Dual view model:  List and Table.
 
 Smart ng-Search.
 
-![](https://github.com/alexWhoAmI/PhoneBook/blob/master/Phonebook.png)
+![](https://github.com/alextitakov/PhoneBook/blob/master/Phonebook.png)
 
