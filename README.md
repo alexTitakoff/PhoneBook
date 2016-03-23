@@ -1,6 +1,6 @@
 ### PhoneBook app building by Angular.js!
 
-##[ViewApp](http://alexwhoami.github.io/PhoneBook/)
+##[ViewApp](http://alextitakov.github.io/PhoneBook/)
 ***
 
 Dual view model:  List and Table.
